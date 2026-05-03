@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Glowhaus Salon — Bhopal's Premium Hair & Beauty Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream:    #F7F2EC;
+    --cream-2:  #EDE5D8;
+    --sand:     #D4BFA0;
+    --gold:     #B8965A;
+    --gold-lt:  #D4AE72;
+    --ink:      #1C1A17;
+    --ink-60:   rgba(28,26,23,0.6);
+    --ink-20:   rgba(28,26,23,0.12);
+    --white:    #FFFFFF;
+    --serif:    'Cormorant Garant', Georgia, serif;
+    --sans:     'Jost', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 5vw;
+    background: rgba(247,242,236,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--ink-20);
+    transition: box-shadow 0.3s;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-60);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    background: var(--ink);
+    color: var(--cream) !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 2px;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.14em !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--white) !important; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 5vw 6rem 8vw;
+    position: relative;
+  }
+  .hero-left::after {
+    content: '';
+    position: absolute; right: 0; top: 10%; bottom: 10%;
+    width: 1px; background: var(--ink-20);
+  }
+  .hero-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .hero-tag::before {
+    content: '';
+    display: inline-block; width: 30px; height: 1px; background: var(--gold);
+  }
+  .hero-h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.8rem;
+    color: var(--ink);
+  }
+  .hero-h1 em { font-style: italic; color: var(--gold); }
+  .hero-sub {
+    font-size: 1rem;
+    color: var(--ink-60);
+    max-width: 400px;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 1rem 2.4rem;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.25s, transform 0.2s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
+  .btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: var(--ink);
+    padding: 0.95rem 2.4rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--ink-20);
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+    cursor: pointer;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-top: 4rem;
+    padding-top: 2.5rem; border-top: 1px solid var(--ink-20);
+  }
+  .stat-item { }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.2rem; font-weight: 600;
+    color: var(--ink); line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-60); margin-top: 0.3rem;
+  }
+
+  .hero-right {
+    position: relative; overflow: hidden;
+    background: var(--cream-2);
+  }
+  .hero-img-placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(145deg, #E8D9C4 0%, #D4BFA0 50%, #C2A882 100%);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 1rem;
+    color: rgba(28,26,23,0.35);
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    letter-spacing: 0.05em;
+  }
+  .hero-img-placeholder .ph-icon {
+    font-size: 3rem; opacity: 0.4;
+  }
+  .hero-badge {
+    position: absolute; bottom: 3rem; left: -1rem;
+    background: var(--white);
+    border: 1px solid var(--ink-20);
+    padding: 1rem 1.4rem;
+    border-radius: 4px;
+    box-shadow: 0 8px 30px rgba(28,26,23,0.1);
+    min-width: 200px;
+  }
+  .hero-badge-label {
+    font-size: 0.68rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem;
+  }
+  .hero-badge-val {
+    font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: var(--ink);
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 7rem 8vw; }
+  .section-tag {
+    font-size: 0.72rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold);
+    display: flex; align-items: center; gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .section-tag::before {
+    content: ''; display: inline-block;
+    width: 30px; height: 1px; background: var(--gold);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+    font-weight: 300; line-height: 1.15;
+    color: var(--ink);
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-sub {
+    font-size: 1rem; color: var(--ink-60);
+    max-width: 480px; margin-top: 1rem; line-height: 1.8;
+  }
+
+  /* ── SERVICES ── */
+  #services { background: var(--white); }
+  .services-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 4rem; flex-wrap: wrap; gap: 1.5rem;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5px;
+    background: var(--ink-20);
+    border: 1.5px solid var(--ink-20);
+  }
+  .service-card {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    transition: background 0.25s;
+    cursor: default;
+    position: relative;
+  }
+  .service-card:hover { background: var(--cream); }
+  .service-num {
+    font-family: var(--serif); font-size: 0.85rem;
+    color: var(--gold); margin-bottom: 1.5rem; font-weight: 600;
+  }
+  .service-name {
+    font-family: var(--serif); font-size: 1.4rem;
+    font-weight: 400; color: var(--ink); margin-bottom: 0.6rem;
+    line-height: 1.25;
+  }
+  .service-desc {
+    font-size: 0.88rem; color: var(--ink-60);
+    line-height: 1.7; margin-bottom: 1.5rem;
+  }
+  .service-price {
+    font-family: var(--serif); font-size: 1.2rem;
+    color: var(--gold); font-weight: 600;
+  }
+  .service-tag-badge {
+    position: absolute; top: 1.5rem; right: 1.5rem;
+    background: var(--gold);
+    color: var(--white);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+  }
+
+  /* ── GALLERY ── */
+  #gallery { background: var(--cream); }
+  .gallery-header { margin-bottom: 3rem; }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 260px 260px;
+    gap: 8px;
+  }
+  .gallery-grid .g-item:first-child {
+    grid-row: 1 / 3;
+  }
+  .g-item {
+    background: var(--cream-2);
+    overflow: hidden;
+    border-radius: 2px;
+    position: relative;
+  }
+  .g-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+    color: rgba(28,26,23,0.3);
+    font-style: italic; font-size: 0.9rem;
+    text-align: center; padding: 1rem;
+    background: linear-gradient(160deg, #E5D5BE, #CEBA9D);
+    transition: transform 0.4s;
+  }
+  .g-item:hover .g-placeholder { transform: scale(1.03); }
+  .g-overlay {
+    position: absolute; inset: 0;
+    background: rgba(28,26,23,0);
+    display: flex; align-items: flex-end; padding: 1.2rem;
+    transition: background 0.3s;
+  }
+  .g-item:hover .g-overlay { background: rgba(28,26,23,0.35); }
+  .g-label {
+    font-size: 0.8rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: transparent;
+    transition: color 0.3s;
+  }
+  .g-item:hover .g-label { color: var(--cream); }
+  .gallery-note {
+    margin-top: 1.5rem;
+    font-size: 0.82rem; color: var(--ink-60); font-style: italic;
+    text-align: center;
+  }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--ink); }
+  #testimonials .section-tag { color: var(--gold-lt); }
+  #testimonials .section-tag::before { background: var(--gold-lt); }
+  #testimonials .section-title { color: var(--cream); }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+  .testi-card {
+    border: 1px solid rgba(247,242,236,0.12);
+    padding: 2.2rem;
+    border-radius: 2px;
+    transition: border-color 0.25s;
+  }
+  .testi-card:hover { border-color: var(--gold); }
+  .stars {
+    color: var(--gold-lt); font-size: 0.85rem;
+    margin-bottom: 1.2rem; letter-spacing: 0.1em;
+  }
+  .testi-text {
+    font-family: var(--serif); font-size: 1.1rem;
+    font-style: italic; font-weight: 300;
+    color: var(--cream); line-height: 1.75;
+    margin-bottom: 1.8rem;
+  }
+  .testi-author {
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .testi-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 500; color: var(--white);
+    flex-shrink: 0;
+  }
+  .testi-name {
+    font-size: 0.85rem; font-weight: 500;
+    color: var(--cream); letter-spacing: 0.04em;
+  }
+  .testi-role { font-size: 0.75rem; color: rgba(247,242,236,0.45); }
+
+  /* ── BOOKING / CTA ── */
+  #book {
+    background: var(--cream-2);
+    text-align: center;
+    padding: 8rem 8vw;
+  }
+  .book-inner { max-width: 620px; margin: 0 auto; }
+  .book-inner .section-tag { justify-content: center; }
+  .book-inner .section-tag::before { display: none; }
+  .book-inner .section-title { text-align: center; }
+  .book-inner .section-sub { text-align: center; margin: 1rem auto 2.5rem; }
+  .book-form {
+    display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center;
+    margin-top: 2rem;
+  }
+  .book-form input, .book-form select {
+    flex: 1 1 200px;
+    padding: 0.85rem 1.2rem;
+    border: 1px solid var(--sand);
+    border-radius: 2px;
+    background: var(--white);
+    font-family: var(--sans); font-size: 0.88rem; font-weight: 300;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .book-form input:focus, .book-form select:focus { border-color: var(--gold); }
+  .book-form select { color: var(--ink-60); }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0;
+  }
+  .contact-left {
+    padding: 7rem 5vw 7rem 8vw;
+  }
+  .contact-info { margin-top: 3rem; display: flex; flex-direction: column; gap: 2rem; }
+  .c-info-item { display: flex; gap: 1.2rem; align-items: flex-start; }
+  .c-info-icon {
+    width: 40px; height: 40px; border: 1px solid var(--ink-20);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0; color: var(--gold);
+  }
+  .c-info-label {
+    font-size: 0.7rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.25rem;
+  }
+  .c-info-val { font-size: 0.95rem; color: var(--ink); line-height: 1.6; }
+  .contact-right {
+    background: var(--cream);
+    padding: 7rem 8vw 7rem 5vw;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .map-placeholder {
+    width: 100%; height: 200px;
+    background: linear-gradient(135deg, #E0CEB0, #C9B08A);
+    border-radius: 2px; margin-top: 2rem;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(28,26,23,0.4); font-style: italic;
+    font-family: var(--serif); font-size: 0.9rem;
+  }
+  .hours-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0.5rem; margin-top: 1rem;
+  }
+  .hours-row { display: contents; }
+  .hours-day { font-size: 0.82rem; color: var(--ink-60); padding: 0.4rem 0; border-bottom: 1px solid var(--ink-20); }
+  .hours-time { font-size: 0.82rem; color: var(--ink); padding: 0.4rem 0; border-bottom: 1px solid var(--ink-20); text-align: right; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(247,242,236,0.5);
+    padding: 2.5rem 8vw;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-logo {
+    font-family: var(--serif); font-size: 1.2rem;
+    color: var(--cream); font-weight: 600;
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-note { font-size: 0.78rem; letter-spacing: 0.04em; }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a {
+    font-size: 0.78rem; color: rgba(247,242,236,0.45);
+    text-decoration: none; letter-spacing: 0.08em;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    #hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 5rem 6vw 3rem; }
+    .hero-left::after { display: none; }
+    .hero-right { height: 60vw; }
+    .nav-links { display: none; }
+    #contact { grid-template-columns: 1fr; }
+    .contact-left { padding: 5rem 6vw 3rem; }
+    .contact-right { padding: 3rem 6vw 5rem; }
+    section { padding: 5rem 6vw; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gallery-grid .g-item:first-child { grid-row: auto; }
+  }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Glow<span>haus</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Find Us</a></li>
+    <li><a href="#book" class="nav-cta">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Bhopal's Premium Salon</div>
+    <h1 class="hero-h1">
+      Where Beauty<br/>
+      Meets <em>Intention</em>
+    </h1>
+    <p class="hero-sub">
+      Expert cuts, colour, and care — crafted for who you are becoming. Walk in. Walk out transformed.
+    </p>
+    <div class="hero-btns">
+      <a href="#book" class="btn-primary">Book an Appointment</a>
+      <a href="#services" class="btn-outline">See Services</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">800+</div>
+        <div class="stat-label">Happy Clients</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">7 Yrs</div>
+        <div class="stat-label">In Business</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4.9★</div>
+        <div class="stat-label">Google Rating</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right" style="position:relative; overflow:hidden;">
+    <img src="model.png" alt="Bridal glam by Glowhaus" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;" />
+    <div class="hero-badge">
+      <div class="hero-badge-label">Next slot available</div>
+      <div class="hero-badge-val">Today — 4:00 PM</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-tag">What We Offer</div>
+      <h2 class="section-title">Services Built for <em>Real Results</em></h2>
+      <p class="section-sub">Every service is performed by trained stylists using premium products. No shortcuts.</p>
+    </div>
+    <a href="#book" class="btn-primary">Book a Service</a>
+  </div>
+
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-name">Signature Haircut</div>
+      <p class="service-desc">Precision cut tailored to your face shape, lifestyle, and hair type. Includes wash + blow-dry.</p>
+      <div class="service-price">From ₹399</div>
+      <span class="service-tag-badge">Popular</span>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-name">Global Colour</div>
+      <p class="service-desc">Full-head colour with ammonia-free dye. Vibrant, long-lasting, and salon-safe.</p>
+      <div class="service-price">From ₹999</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-name">Balayage & Highlights</div>
+      <p class="service-desc">Sun-kissed, natural-looking colour that grows out beautifully. Zero harsh lines.</p>
+      <div class="service-price">From ₹1,999</div>
+      <span class="service-tag-badge">Trending</span>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-name">Keratin Treatment</div>
+      <p class="service-desc">Frizz-free, silky smooth hair for up to 4 months. Walk out like a different person.</p>
+      <div class="service-price">From ₹2,499</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <div class="service-name">Bridal Package</div>
+      <p class="service-desc">Full glam for your most important day. Includes hair, makeup, and a trial session.</p>
+      <div class="service-price">From ₹5,999</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <div class="service-name">Facial & Cleanup</div>
+      <p class="service-desc">Deep cleanse, glow-boosting treatments using Dermalogica & L'Oréal products.</p>
+      <div class="service-price">From ₹599</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-header reveal">
+    <div class="section-tag">Our Work</div>
+    <h2 class="section-title">The Proof is in the <em>Portfolio</em></h2>
+    <p class="section-sub">Real clients. Real results. Every photo taken right here in our studio.</p>
+  </div>
+
+  <div class="gallery-grid reveal">
+    <div class="g-item">
+      <img src="1.png" alt="Bridal glam by Glowhaus" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;" />
+      <div class="g-placeholder">Add Before/After Image<br/>(Hair Transformation)</div>
+      <div class="g-overlay"><span class="g-label">Balayage ✦</span></div>
+    </div>
+    <div class="g-item">
+      <img src="2.png" alt="Bridal glam by Glowhaus" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;" />
+      <div class="g-placeholder">Add Image<br/>(Colour Work)</div>
+      <div class="g-overlay"><span class="g-label">Global Colour ✦</span></div>
+    </div>
+    <div class="g-item">
+      <img src="3.png" alt="Bridal glam by Glowhaus" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;" />
+      <div class="g-placeholder">Add Image<br/>(Bridal Look)</div>
+      <div class="g-overlay"><span class="g-label">Bridal Glam ✦</span></div>
+    </div>
+    <div class="g-item">
+      <img src="4.png" alt="Bridal glam by Glowhaus" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;" />
+      <div class="g-placeholder">Add Image<br/>(Haircut)</div>
+      <div class="g-overlay"><span class="g-label">Precision Cut ✦</span></div>
+    </div>
+    <div class="g-item">
+      <img src="5.png" alt="Bridal glam by Glowhaus" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;" />
+      <div class="g-placeholder">Add Image<br/>(Salon Interior)</div>
+      <div class="g-overlay"><span class="g-label">Our Studio ✦</span></div>
+    </div>
+  </div>
+  <p class="gallery-note reveal">Replace placeholders with actual client photos — with their permission. Before/after shots work best.</p>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="reveal">
+    <div class="section-tag">Client Love</div>
+    <h2 class="section-title">What Our Clients <em>Say</em></h2>
+  </div>
+
+  <div class="testi-grid reveal">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"I walked in nervous and walked out obsessed. My balayage looks exactly like the reference photo — I couldn't believe it."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">PR</div>
+        <div>
+          <div class="testi-name">Priya Rajput</div>
+          <div class="testi-role">Software Engineer, Bhopal</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Got my keratin done for the first time ever. Four months later and my hair is still silky. Worth every rupee."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">NM</div>
+        <div>
+          <div class="testi-name">Nisha Malhotra</div>
+          <div class="testi-role">Teacher, Bhopal</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"They did my entire bridal look. My family couldn't stop complimenting me. Best decision I made for my wedding day."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">AS</div>
+        <div>
+          <div class="testi-name">Anjali Sharma</div>
+          <div class="testi-role">Bride, Nov 2024</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING CTA -->
+<section id="book">
+  <div class="book-inner">
+    <div class="section-tag">Ready to Glow?</div>
+    <h2 class="section-title">Book Your <em>Appointment</em></h2>
+    <p class="section-sub">Choose a service, pick a time, and we'll confirm within the hour. No waiting, no hassle.</p>
+    <div class="book-form">
+      <input id="bf-name" type="text" placeholder="Your Name" />
+      <input id="bf-phone" type="tel" placeholder="Phone / WhatsApp" maxlength="13" />
+      <select id="bf-service">
+        <option value="" disabled selected>Choose a Service</option>
+        <option>Haircut</option>
+        <option>Global Colour</option>
+        <option>Balayage &amp; Highlights</option>
+        <option>Keratin Treatment</option>
+        <option>Bridal Package</option>
+        <option>Facial &amp; Cleanup</option>
+      </select>
+      <input id="bf-date" type="date" />
+      <button class="btn-primary" style="flex: 1 1 100%; margin-top: 0.5rem; padding: 1.1rem;">
+        Request Appointment →
+      </button>
+    </div>
+    <p style="font-size:0.78rem; color:var(--ink-60); margin-top:1.2rem;">
+      Or WhatsApp us directly: <a href="https://wa.me/919XXXXXXXXX" style="color:var(--gold); text-decoration:none; font-weight:500;">+91 9XXXXXXXXX</a>
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-left reveal">
+    <div class="section-tag">Find Us</div>
+    <h2 class="section-title">Visit the <em>Studio</em></h2>
+    <p class="section-sub">We're located in the heart of Bhopal. Walk-ins welcome, but bookings are preferred.</p>
+
+    <div class="contact-info">
+      <div class="c-info-item">
+        <div class="c-info-icon">📍</div>
+        <div>
+          <div class="c-info-label">Address</div>
+          <div class="c-info-val">Shop 12, MP Nagar Zone-I<br/>Bhopal, Madhya Pradesh 462011</div>
+        </div>
+      </div>
+      <div class="c-info-item">
+        <div class="c-info-icon">📞</div>
+        <div>
+          <div class="c-info-label">Phone / WhatsApp</div>
+          <div class="c-info-val">+91 98XXXXXXXX</div>
+        </div>
+      </div>
+      <div class="c-info-item">
+        <div class="c-info-icon">📸</div>
+        <div>
+          <div class="c-info-label">Instagram</div>
+          <div class="c-info-val">@glowhaus.bhopal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-right reveal">
+    <div class="section-tag">Working Hours</div>
+    <h3 style="font-family: var(--serif); font-size: 1.6rem; font-weight: 300; color: var(--ink); margin-top: 0.5rem;">Open 7 Days a Week</h3>
+    <div class="hours-grid" style="margin-top: 1.5rem;">
+      <div class="hours-day">Monday – Friday</div>
+      <div class="hours-time">10:00 AM – 8:00 PM</div>
+      <div class="hours-day">Saturday</div>
+      <div class="hours-time">9:00 AM – 8:30 PM</div>
+      <div class="hours-day">Sunday</div>
+      <div class="hours-time">10:00 AM – 6:00 PM</div>
+    </div>
+    <div class="map-placeholder">
+      📍 Embed Google Map here
+    </div>
+    <a href="#book" class="btn-primary" style="display: inline-block; margin-top: 1.8rem;">Book Now — It's Free</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Glow<span>haus</span></div>
+  <div class="footer-note">© 2025 Glowhaus Salon, Bhopal. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#book">Book</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.12 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Nav shadow on scroll
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.boxShadow =
+      window.scrollY > 10 ? '0 2px 20px rgba(28,26,23,0.08)' : 'none';
+  });
+
+  // Set min date to today
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('bf-date').setAttribute('min', today);
+
+  // ── BOOKING FORM → WHATSAPP ──
+  const SALON_WHATSAPP = "918959863777"; // ← CHANGE THIS to owner's number (91 + 10 digits, no spaces)
+
+  document.querySelector('.book-form button').addEventListener('click', () => {
+    const name    = document.getElementById('bf-name');
+    const phone   = document.getElementById('bf-phone');
+    const service = document.getElementById('bf-service');
+    const date    = document.getElementById('bf-date');
+    const btn     = document.querySelector('.book-form button');
+
+    // Clear previous errors
+    [name, phone, service, date].forEach(el => {
+      el.style.borderColor = '';
+      el.style.background  = '';
+    });
+
+    // Validate
+    let valid = true;
+    if (!name.value.trim())    { name.style.borderColor    = '#B8965A'; name.style.background    = '#FFF8F2'; valid = false; }
+    if (!phone.value.trim())   { phone.style.borderColor   = '#B8965A'; phone.style.background   = '#FFF8F2'; valid = false; }
+    if (!service.value)        { service.style.borderColor = '#B8965A'; service.style.background = '#FFF8F2'; valid = false; }
+    if (!date.value)           { date.style.borderColor    = '#B8965A'; date.style.background    = '#FFF8F2'; valid = false; }
+
+    if (!valid) {
+      btn.textContent = 'Please fill all fields ↑';
+      setTimeout(() => btn.textContent = 'Request Appointment →', 2500);
+      return;
+    }
+
+    // Format date nicely
+    const raw  = new Date(date.value);
+    const niceDateOptions = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
+    const niceDate = raw.toLocaleDateString('en-IN', niceDateOptions);
+
+    // Build WhatsApp message
+    const msg = encodeURIComponent(
+`Hi Glowhaus! 👋 I'd like to book an appointment.
+
+🙍 *Name:* ${name.value.trim()}
+📱 *Phone:* ${phone.value.trim()}
+✂️ *Service:* ${service.value}
+📅 *Date:* ${niceDate}
+
+Please confirm my slot. Thank you!`
+    );
+
+    // Button feedback
+    btn.textContent = 'Opening WhatsApp... ✓';
+    btn.style.background = '#25D366';
+
+    setTimeout(() => {
+      window.open(`https://wa.me/${SALON_WHATSAPP}?text=${msg}`, '_blank');
+      // Reset form
+      [name, phone, date].forEach(el => el.value = '');
+      service.value = '';
+      btn.textContent = 'Request Appointment →';
+      btn.style.background = '';
+    }, 600);
+  });
+
+  // Live phone validation (only numbers, 10 digits)
+  document.getElementById('bf-phone').addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9+]/g, '');
+  });
+</script>
+</body>
+</html>
