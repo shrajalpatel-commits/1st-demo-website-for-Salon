@@ -3,7 +3,39 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Glowhaus Salon — Bhopal's Premium Hair & Beauty Studio</title>
+
+<title>GlowHaus Salon Bhopal | Luxury Hair & Beauty Studio</title>
+
+<!-- meta tags for SEO -->
+<meta 
+name="description" 
+content="GlowHaus is a premium salon in Bhopal offering luxury hair styling, beauty treatments, bridal makeup, and grooming services."/>
+<meta 
+name="keywords" 
+content="Salon in Bhopal, Premium Salon Bhopal, Hair Salon Bhopal, Bridal Makeup Bhopal, Beauty Salon Bhopal, GlowHaus Salon"/>
+<meta name="author" content="GlowHaus" />
+<meta name="robots" content="index, follow" />
+
+<link rel="canonical" href="https://glowhaus-bhopal.vercel.app/" />
+
+<meta property="og:title" content="GlowHaus Salon Bhopal" />
+<meta 
+property="og:description" 
+content="Luxury salon experience in Bhopal with premium beauty, hair, and bridal services." />
+<meta 
+property="og:image" 
+content="https://glowhaus-bhopal.vercel.app/preview.jpg" />
+<meta 
+property="og:url" 
+content="https://glowhaus-bhopal.vercel.app/" />
+<meta property="og:type" content="website" />
+
+<!-- meta tags for fevicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -429,12 +461,15 @@
     display: flex; flex-direction: column; justify-content: center;
   }
   .map-placeholder {
-    width: 100%; height: 200px;
-    background: linear-gradient(135deg, #E0CEB0, #C9B08A);
-    border-radius: 2px; margin-top: 2rem;
-    display: flex; align-items: center; justify-content: center;
-    color: rgba(28,26,23,0.4); font-style: italic;
-    font-family: var(--serif); font-size: 0.9rem;
+  width: 100%;
+  height: 320px;
+  margin-top: 2rem;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  }
+  .map-placeholder iframe {
+  filter: grayscale(0.2) contrast(1.05);
   }
   .hours-grid {
     display: grid; grid-template-columns: 1fr 1fr;
@@ -747,7 +782,15 @@
       <div class="hours-time">10:00 AM – 6:00 PM</div>
     </div>
     <div class="map-placeholder">
-      📍 Embed Google Map here
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3665.796157465048!2d77.46370437536439!3d23.250503679014663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c437f92a2b441%3A0x29ec025a3961c040!2sShree%20Boys%20Hostel%204!5e0!3m2!1sen!2sin!4v1779653754487!5m2!1sen!2sin"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
     <a href="#book" class="btn-primary" style="display: inline-block; margin-top: 1.8rem;">Book Now — It's Free</a>
   </div>
